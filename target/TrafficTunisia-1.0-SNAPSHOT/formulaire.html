@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="newcss.css" />
+    <title>RoadFlow</title>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <!-- ... (your existing navbar code) ... -->
+    </nav>
+
+    <div class="form-body" style="padding-left: 450px;">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <h3>Declaration Accident</h3>
+                        <p>Veuillez entrer les donnees adequates</p>
+                        <form id="incidentForm">
+                             <div class="col-md-12">
+                                <input class="form-control" type="text" name="ID" placeholder="ID" required>
+                            </div>
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="City" placeholder="City" required>
+                            </div>
+
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="Street" placeholder="Street" required>
+                            </div>
+
+                            <div class="col-md-12">
+                                <input class="form-control" type="text" name="Severity" placeholder="Severity" required>
+                                
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                                <label class="form-check-label">Je confirme que tous les donnees sont correct</label>
+                            </div>
+
+                            <div class="form-button mt-3" style="padding-left: 200px">
+                                <button id="submit" type="submit" class="btn btn-primary btn-lg">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ajouter les fichiers JavaScript de Bootstrap (jQuery et Popper.js sont requis) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript for form submission -->
+     <script>
+         xhr.setRequestHeader('Content-Type', 'application/json');
+
+        document.getElementById('incidentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var formData = new FormData(this);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://localhost:8080/TrafficTunisia/resources/incident/ajouterIncident', true);
+            xhr.setRequestHeader('Content-Type', 'application/json'); // Correct Content-Type header
+
+            var jsonData = {};
+            formData.forEach(function(value, key){
+                jsonData[key] = value;
+            });
+
+            xhr.send(JSON.stringify(jsonData));
+
+            xhr.onload = function() {
+                if (xhr.status === 204) {
+                    console.log('Incident added successfully');
+                    // Optionally, you can redirect the user or perform other actions here
+                } else {
+                    console.error('Error adding incident');
+                }
+            };
+        });
+    </script>
+</body>
+</html>

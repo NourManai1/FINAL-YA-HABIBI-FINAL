@@ -1,0 +1,6 @@
+com\enicar\traffictunisia\resources\JakartaEE8Resource.class
+Entities\Traffic.class
+test.class
+com\enicar\traffictunisia\JakartaRestConfiguration.class
+Services\IncidentRESTService.class
+Services\connection.class
