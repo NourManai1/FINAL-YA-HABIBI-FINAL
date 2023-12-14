@@ -58,16 +58,16 @@
 
     <!-- JavaScript for form submission -->
      <script>
-         xhr.setRequestHeader('Content-Type', 'application/json');
 
         document.getElementById('incidentForm').addEventListener('submit', function(event) {
             event.preventDefault();
-
+            
             var formData = new FormData(this);
 
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'http://localhost:8080/TrafficTunisia/resources/incident/ajouterIncident', true);
             xhr.setRequestHeader('Content-Type', 'application/json'); // Correct Content-Type header
+
 
             var jsonData = {};
             formData.forEach(function(value, key){

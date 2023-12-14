@@ -6,19 +6,17 @@ package Entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author amelb
- */
+
 @XmlRootElement
 public class Traffic implements Serializable {
     public String ID;
     public String Source;
     public int Severity;
-    public Date Start_Time;
-    public Date End_Time;
+    public String Start_Time;
+    public String End_Time;
     public double Start_Lat;
     public double Start_Lng;
     public double Distance;
@@ -62,6 +60,7 @@ public class Traffic implements Serializable {
     /**
      * @return the ID
      */
+    @XmlElement(name = "ID")
     public String getID() {
         return ID;
     }
@@ -105,28 +104,28 @@ public class Traffic implements Serializable {
     /**
      * @return the Start_Time
      */
-    public Date getStart_Time() {
+    public String getStart_Time() {
         return Start_Time;
     }
 
     /**
      * @param Start_Time the Start_Time to set
      */
-    public void setStart_Time(Date Start_Time) {
+    public void setStart_Time(String Start_Time) {
         this.Start_Time = Start_Time;
     }
 
     /**
      * @return the End_Time
      */
-    public Date getEnd_Time() {
+    public String getEnd_Time() {
         return End_Time;
     }
 
     /**
      * @param End_Time the End_Time to set
      */
-    public void setEnd_Time(Date End_Time) {
+    public void setEnd_Time(String End_Time) {
         this.End_Time = End_Time;
     }
 

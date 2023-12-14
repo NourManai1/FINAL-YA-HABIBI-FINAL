@@ -18,5 +18,6 @@ Any value defined here will override the pom.xml file value but is only applicab
         <netbeans.compile.on.save>all</netbeans.compile.on.save>
         <netbeans.hint.jdkPlatform>JDK_1.8</netbeans.hint.jdkPlatform>
         <org-netbeans-modules-javascript2-requirejs.enabled>true</org-netbeans-modules-javascript2-requirejs.enabled>
+        <org-netbeans-modules-maven-jaxws.generate_5f_nonjsr109>true</org-netbeans-modules-maven-jaxws.generate_5f_nonjsr109>
     </properties>
 </project-shared-configuration>

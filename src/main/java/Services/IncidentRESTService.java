@@ -10,10 +10,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 
-/**
- *
- * @author amelb
- */
+
 import Entities.Traffic;
 //import Service.connection;
 import java.sql.PreparedStatement;
@@ -118,8 +115,14 @@ public void ajouterIncident(Traffic incident) {
     private Traffic mapResultSetToIncident(ResultSet resultSet) throws SQLException {
         Traffic traffic = new Traffic();
         
-        traffic.setDescription(resultSet.getString("Description"));
+        traffic.setCounty(resultSet.getString("County"));
+        traffic.setCity(resultSet.getString("City"));
+        traffic.setStreet(resultSet.getString("Street"));
         traffic.setSeverity(resultSet.getInt("Severity"));
+        traffic.setDescription(resultSet.getString("Description"));
+
+        traffic.setStart_Time(resultSet.getString("Start_Time"));
+        
         
        
         return traffic ;
